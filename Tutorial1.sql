@@ -1,0 +1,29 @@
+CREATE DATABASE  tut1;
+USE tut1;
+CREATE table INPUT
+(
+COUNTRY_NAME VARCHAR(20),
+SALES_PERSON VARCHAR(20),
+SALES INT 
+);
+INSERT INTO INPUT(COUNTRY_NAME, SALES_PERSON, SALES) VALUES
+('India', 'RAW', 100),
+('Austraia', 'MDM', 50),
+('New Zealand', 'ETL', 10),
+('USA', 'DHS', 350),
+('United Kingdom', 'MI6', 110),
+('Canada', 'CSIS', 120);
+SELECT * FROM INPUT;
+CREATE table LOOKUP
+(
+SALES INT, 
+RATING VARCHAR(30)  
+);
+INSERT INTO LOOKUP(SALES, RATING) VALUES
+(100, 'Poor'),
+(50, 'Poor'),
+(350, 'Very good'),
+(200, 'Good'),
+(245, 'Very Good'),
+(125, 'Good');
+SELECT * FROM LOOKUP
