@@ -1,0 +1,21 @@
+1. What are the different datatypes in SQL? Explain each one with an example.
+2. What is the difference between Primary key and Unique constraints.
+3. List all the SQL statements.
+4. What is the syntax to create a table in a database? Write an example.
+5. How to remove a constraint applied to a column? Demonstrate with an example.
+6. How to insert data into particular columns in the table?
+7. What happens when you try to delete or update the data without a condition?
+8. What is the use of savepoint in SQL?
+9. What is the difference between cross join and inner join? Where can they be used?
+10. Explain self join with an example.
+11. What in the use of an outer join?
+12. How to extract the part "tri" and "ing" from the word "String".
+13. Check if the name "Itvedant" has even number of characters and display "Yes" if true or "No" if false.
+14. WAQTD the names of employees who earn more the max sal of Allen's dept.
+15. WAQTD the details of those employees who work same as Blake's reporters and work in dept same as Smith.
+16. WAQTD dname, loc of that dept whose max sal is more than any of King's reporters' salary.
+17. WAQTD the name,loc and deptno of the employees and their managers if the employee works in Chicago and 
+	manager works in dept same as Allen's manager.
+18. Create a view of the details of employees who have some commission and work at location whose max sal is more than the total salary of Smith's dept. 
+19. Write a query to display the details of the employees who earns second and third highest salaries.
+20. WAQTD the details of employees along with the max and avg sal of their departments if the employee earns more than the avg sal of Blake's manager's dept.

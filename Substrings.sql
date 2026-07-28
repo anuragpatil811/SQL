@@ -40,15 +40,13 @@ INSERT INTO emp (empno, ename, job, mgr, hiredate, sal, comm, deptno) VALUES
 (7900, 'JAMES', 'CLERK',   7698, '1981-12-03', 950.00, NULL, 30),
 (7902, 'FORD',  'ANALYST', 7566, '1981-12-03', 3000.00, NULL, 20),
 (7934, 'MILLER','CLERK',   7782, '1982-01-23', 1300.00, NULL, 10);
-SELECT * FROM dept;
-SELECT * FROM emp;
-SELECT ename FROM emp;
-SELECT ename, sal FROM emp;
-SELECT sal*12 AnnualSalary FROM emp;
-SELECT sal*12 'Annual Salary' from emp;
-SELECT * FROM emp WHERE ename='SMITH';
-SELECT * FROM emp WHERE sal>2500;
-SELECT ename, sal, job FROM emp WHERE sal<=3000;
-SELECT * FROM emp WHERE job='MANAGER' OR deptno=30;
-SELECT * FROM emp where deptno = 20 AND job='SALESMAN';
-SELECT * FROM emp where (deptno = 10) OR (deptno = 20) AND job='MANAGER';
+SELECT *
+ FROM emp where substr(ename, 1, 1) = 'A';
+SELECT * FROM emp WHERE substr(job, 3)='YST';
+SELECT sin(0);
+SELECT log(100);
+SELECT log10(100);
+SELECT log2(100);
+SELECT exp(4);
+SELECT * FROM emp where mod(length(ename), 2)=0;
+select ename, case when mod(length(ename), 2)=0 THEN 'Even' ELSE 'odd' END AS 'Odd/Even' FROm emp;

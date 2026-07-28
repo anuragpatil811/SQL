@@ -40,15 +40,24 @@ INSERT INTO emp (empno, ename, job, mgr, hiredate, sal, comm, deptno) VALUES
 (7900, 'JAMES', 'CLERK',   7698, '1981-12-03', 950.00, NULL, 30),
 (7902, 'FORD',  'ANALYST', 7566, '1981-12-03', 3000.00, NULL, 20),
 (7934, 'MILLER','CLERK',   7782, '1982-01-23', 1300.00, NULL, 10);
-SELECT * FROM dept;
-SELECT * FROM emp;
-SELECT ename FROM emp;
-SELECT ename, sal FROM emp;
-SELECT sal*12 AnnualSalary FROM emp;
-SELECT sal*12 'Annual Salary' from emp;
-SELECT * FROM emp WHERE ename='SMITH';
-SELECT * FROM emp WHERE sal>2500;
-SELECT ename, sal, job FROM emp WHERE sal<=3000;
-SELECT * FROM emp WHERE job='MANAGER' OR deptno=30;
-SELECT * FROM emp where deptno = 20 AND job='SALESMAN';
-SELECT * FROM emp where (deptno = 10) OR (deptno = 20) AND job='MANAGER';
+SELECT * FROM emp WHERE deptno=(SELECT deptno FROM 
+emp WHERE empno = (SELECT mgr FROM emp WHERE ename = 'SMITH'));
+
+SELECT * FROM emp where sal > 
+ALL(SELECT sal FROM emp WHERE mgr = (SELECT empno FROM emp WHERE ename='BLAKE'));
+
+SELECT * FROM emp WHERE job IN 
+(SELECT job FROM emp WHERE mgr = (SELECT empno FROM emp WHERE ename='JONES'));
+
+SELECT deptno, max(sal), avg(sal) FROM emp GROUP BY deptno HAVING avg(sal) > 
+(SELECT sal FROM emp WHERE empno = (SELECT mgr FROM emp WHERE ename='SMITH'));
+
+
+SELECT * FROM emp where sal > (SELECT avg(sal) FROM emp
+ WHERE deptno = (SELECT deptno FROM emp WHERE empno = (SELECT mgr FROM emp WHERE ename = 'ALLEN')));
+ 
+ 
+select * from emp where deptno IN 
+(SELECT deptno FROm emp where mgr = (SELECT empno from emp where ename='BLAKE')) 
+AND  sal> (SELECT avg(sal) from emp where deptno = (SELECT deptno from emp where empno = (SELECT mgr from emp where ename='SMITH')));
+

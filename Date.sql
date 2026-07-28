@@ -1,0 +1,10 @@
+SELECT CURDATE();
+SELECT CURTIME();
+select now();
+select date(now());
+select time(now());
+select year(curdate()), month(curdate()), day(curdate());
+select date_add(curdate(), interval 5 day);
+select date_sub(curdate(), interval 8 month);
+select datediff(curdate(), '1997-08-14');
+select date_format(curdate(), '%d-%m-%Y');
